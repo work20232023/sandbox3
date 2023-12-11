@@ -1,0 +1,43 @@
+.prefix {}
+
+.block {}
+
+.diff {}
+
+.difftext {}
+    
+tt
+{
+    display:none !important;
+} 
+
+.original 
+{
+    background:#FFD1C5;
+} 
+
+.final 
+{
+    background:#D4FFC5;
+} 
+
+.added 
+{
+    background:#D4FFC5;
+}
+
+del
+{
+    background: #F59191;    
+}
+
+ins
+{
+    background: #90EC90;
+}
+
+img {
+    max-width: 100%; !important;
+    height: 100%; !important;
+}
+

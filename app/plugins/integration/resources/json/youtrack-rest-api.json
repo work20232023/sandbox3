@@ -1,0 +1,49 @@
+[{
+  "Request": {
+    "url": "/api/issues/{id}?fields=id,summary,description,reporter(login),created,customFields(name,value(name,login))&",
+    "link": "/issues/{id}",
+    "Caption": "summary",
+    "Description": "description",
+    "Priority": {
+      "Caption": "customFields:(name=Priority).value.name",
+      "mapping": [{"Обычный":"Normal"},{"Низкий":"Minor"},{"Высокий":"Major"},{"Критичный":"Critical"},{"":"*"}]
+    },
+    "Author": {"Login":"reporter.login"},
+    "Owner": {"Login":"customFields:(name=Assignee).value.login"},
+    "RecordCreated": "created",
+    "State": {
+      ".": "customFields:(name=State).value.name",
+      "mapping": [{"submitted":"Backlog"},{"resolved":"Done"},{"resolved":"Fixed"},{"submitted":"*"}]
+    },
+    "comments": {
+      "reference":"comment",
+      "type":"RequestComment",
+      "readonly": "true"
+    }
+  },
+  "RequestAttachment": {
+    "url": "/api/issues/{parent}/attachments/{id}?fields=name,url&",
+    "url-append": "/api/issues/{parent}/attachments",
+    "ObjectId": "{parentId}",
+    "FileExt": "name",
+    "File": "url"
+  },
+  "RequestComment": {
+    "url": "/api/issues/{parent}/comments/{id}?fields=text,created,updated,author(login)&",
+    "url-append": "/api/issues/{parent}/comments",
+    "AuthorId": {"Login":"author"},
+    "ObjectId": "{parentId}",
+    "Caption": "text",
+    "RecordCreated": "created",
+    "RecordModified": "updated",
+    "ExternalAuthor": "author.login"
+  },
+  "Activity": {
+    "url": "/api/issues/{parent}/timeTracking/workItems/{id}?fields=author(login),text,duration,date&",
+    "Participant": {"Login":"author.login"},
+    "Issue": "{parentId}",
+    "Description": "text",
+    "Capacity": "duration",
+    "ReportDate": "date"
+  }
+}]

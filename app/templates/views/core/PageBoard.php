@@ -1,0 +1,4 @@
+<?php
+
+$list->draw( $view );
+

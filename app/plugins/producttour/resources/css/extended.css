@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+.tour .popover-title p {
+	color: #fff;
+}
+.tour-backdrop {
+	opacity: 0.2 !important;
+	filter:alpha(opacity=20) !important;
+	z-index: 900 !important;
+}
+.tour-step-backdrop:not(ul) {
+	z-index: 920 !important;
+	position: relative;
+}
+.tour-step-backdrop {
+	z-index: 920 !important;
+}
+.tour-step-background {
+	background: white;
+	opacity: 0.6 !important;
+	filter:alpha(opacity=60) !important;
+	z-index: 910 !important;
+}

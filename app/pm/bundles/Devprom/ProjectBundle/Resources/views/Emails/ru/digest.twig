@@ -1,0 +1,52 @@
+{% extends 'email.base.twig' %}
+
+{% block title %}
+	Последние изменения в проекте, <a href="{{ log_url }}">подробнее</a>:
+{% endblock %}
+
+{% block content %}
+	{% for date, users in dates %}
+		<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+			<td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+				<h3>{{ date }}</h3>
+			</td>
+		</tr>
+		{% for user_name, log_items in users %}
+			<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+				<td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+					Автор изменений: <b>{{ user_name | raw }}</b>
+				</td>
+			</tr>
+			{% for log in log_items %}
+				<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+					<td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+						{% if log.content == "" %}
+							{% if log.action == "added" %}
+								Добавлено:
+							{% elseif log.action == "deleted" %}
+								Удалено:
+							{% elseif log.action == "modified" %}
+								Изменено:
+							{% endif %}
+						{% endif %}
+						{{ log.time }}, {{ log.title | raw }}
+					</td>
+				</tr>
+				{% if log.content == "" %}
+				{% else %}
+					<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+						<td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+							{{ log.content | raw }}
+						</td>
+					</tr>
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	{% endfor %}
+{% endblock %}
+
+{% block footer %}
+	Вы подписаны на <b>периодические дайджесты</b> об изменениях в проекте.
+	Вы можете изменить частоту уведомлений или выбрать другой вариант уведомлений, например, получать только адресованные вам уведомления от приложения.
+	Для этого укажите вариант получения уведомлений в настройках <a href="{{ profile_url }}">своего профиля</a>.
+{% endblock %}

@@ -1,0 +1,24 @@
+<?php
+include_once "ModelValidatorType.php";
+
+class ModelValidatorTypeNumeric extends ModelValidatorType
+{
+	public function applicable( $type_name ) {
+		return in_array($type_name, array('integer', 'price'));
+	}
+	
+	public function validate( & $value, array $groups = array() )
+	{
+		if ( in_array($value, array('','NULL')) ) return true;
+		
+		$values = preg_split('/,/', $value);
+		foreach( $values as $value ) {
+			if( !is_numeric($value) ) return false;
+            if( ceil(log10(abs($value) + 1)) > 9 ) return false;
+		}
+
+        if ( in_array('non-negative', $groups) && $value < 0 ) return false;
+
+		return true;
+	}
+}

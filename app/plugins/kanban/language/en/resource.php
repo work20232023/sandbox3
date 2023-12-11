@@ -1,0 +1,38 @@
+<?php
+
+$plugin_text_array = array 
+(
+ 	1 => 'Kanban task board, constraints and metrics',
+ 	2 => 'Work-In-Progress limit',
+ 	3 => 'Enter the value corresponding to maximum number of tasks are in the state',
+  	4 => 'Kanban is used in the project',
+ 	5 => 'Enable the option if you want to use Kanban practices in the management of your project',
+ 	6 => 'Average cycle time,&nbsp;hrs: %1',
+ 	7 => 'Estimated deadline,&nbsp;days: %1',
+  	9 => 'Kanban',
+ 	10 => '',
+ 	11 => 'Unable to change state because of there are too much elements have the same state, or there is no such transition or lack of permissions. To find out the reason check out the workflow settings.',
+ 	12 => 'Cumulative Flow',
+ 	13 => 'Average cycle time, hrs: %1',
+ 	14 => 'Kanban practice is used',
+ 	15 => 'Kanban: backlog estimation',
+    17 => 'Kanban board',
+    18 => 'Commulative flow',
+    19 => 'Average lead time',
+    20 => 'Project activities',
+    21 => 'Issues types',
+    22 => 'Workflow settings',
+ 	23 => 'Cycle time, hours',
+    24 => 'Task number',
+ 	25 => 'Issues templates',
+ 	26 => 'Average cycle time over a week, hours',
+ 	27 => 'Use the chart to control the duration of the tasks (cycle time), which should decrease with time. Columns correspond to the duration of each task. By clicking on a column you can go to the view of the selected task. The blue line corresponds to the average value of the cycle-time tasks for the week.',
+    28 => 'Tasks types',
+ 	29 => 'On Kanban board it is shown the limits of work (WIP) per each column. If the limit is exceeded, the name of the column will be highlighted in red. Limits are configured on a form of the corresponding status in the settings of the tasks workflow.',
+	30 => 'The use of Cumulative Flow Diagram is very simple. On a vertical axis we have a number of tasks. On a horizontal one we have a timeline. The curves are basically a number of items in any possible state shown in a time perspective. The whole trick is that they are shown cumulatively.',
+	31 => 'for demo puproses',
+	32 => 'Issues block reasons',
+	33 => 'The chart shows the basic causes of issues blockings. Analyze this reasons on the retrospectives and seek how to optimize the process to reduce or eliminate the appearance of blockings in the future.',
+    34 => 'Work in progress is below maximum value for target state',
+    35 => 'There is maximum work in progress for the state "%1", unable to move into the state'
+);

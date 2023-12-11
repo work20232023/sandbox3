@@ -1,0 +1,69 @@
+_admin_entry:
+    path:  /
+    defaults: { _controller: AdministrativeBundle:Main:index }
+
+_admin_setup:
+    path:  /admin/setup
+    defaults: { _controller: AdministrativeBundle:Main:setup }
+
+_admin_install:
+    path:  /install
+    defaults: { _controller: AdministrativeBundle:Install:index }
+
+_admin_install_slash:
+    path:  /install/
+    defaults: { _controller: AdministrativeBundle:Install:index }
+
+_admin_license:
+    path:  /admin/license/
+    defaults: { _controller: AdministrativeBundle:License:index }
+
+_admin_info:
+    path:  /admin/info
+    defaults: { _controller: AdministrativeBundle:Info:index }
+
+_admin_mailer:
+    path:  /admin/mailer/
+    defaults: { _controller: AdministrativeBundle:Mailer:index }
+    methods:  GET
+
+_mailer_store:
+    path:  /admin/mailer/
+    defaults: { _controller: AdministrativeBundle:Mailer:store }
+    methods:  POST
+
+_admin_logs:
+    path:  /admin/log/
+    defaults: { _controller: AdministrativeBundle:Logs:index }
+
+_admin_systemplates:
+    path:  /admin/systemtemplates/
+    defaults: { _controller: AdministrativeBundle:SystemTemplate:index }
+
+_admin_webhooklogs:
+    path:  /admin/webhooklogs/
+    defaults: { _controller: AdministrativeBundle:WebhookLog:index }
+
+_admin_ldap:
+    path:  /admin/ldap/
+    defaults: { _controller: AdministrativeBundle:Ldap:index }
+
+_admin_scripts:
+    path:  /admin/scripts/javascript/
+    defaults: { _controller: CommonBundle:Scripts:js }
+
+_admin_css:
+    path:  /admin/scripts/css/
+    defaults: { _controller: CommonBundle:Scripts:css }
+
+_admin_module:
+    path:  /{module}
+    defaults: { _controller: AdministrativeBundle:Main:index }
+
+_admin_namespace:
+    path:  /{module}/{namespace}
+    defaults: { _controller: AdministrativeBundle:Main:index }
+
+_admin_page:
+    path:  /{module}/{namespace}/{page}
+    defaults: { _controller: AdministrativeBundle:Main:index }

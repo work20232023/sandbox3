@@ -1,0 +1,61 @@
+<div class="tooltip-body">
+{% if type.uid != "" %}
+	<div class="tt-field-data">
+		<b>{{ type.name }}</b>:
+		<button type="button" class="btn-link clipboard" data-clipboard-text="{{ type.url | raw }}" data-message="{{ type.message | raw }}" tabindex="-1">
+			<i class="icon-share"></i> {{ type.uid | raw }}
+		</button>
+		{% for attribute_name, attribute in attributes if attribute.name == "Caption" %}
+			{{ attribute.text | raw }}
+		{% endfor %}
+	</div>
+	<br/>
+{% endif %}
+
+{% set group = 0 %}
+{% for attribute_name, attribute in attributes if attribute.name != "Caption" or type.uid == ""  %}
+	{% if group != attribute.group %}
+		<div class="accordion-wrap" style="margin-top: 18px;">
+			<div class="accordion-heading">
+				<a class="to-drop-btn" href="#" tabindex="-1">
+					<span class="caret"></span>
+					{{ groups[attribute.group] }}
+				</a>
+			</div>
+		</div>
+	{% endif %}
+
+	<b>{{ attribute.title | raw }}</b>:
+	
+	{% if attribute.type == 'tasks'  %}
+    	{% for state in attribute.text  %}
+        	<span class="label {{ state.class }}">
+    			{{ state.name }}
+    		</span>
+    	{% endfor %}
+    {% elseif attribute.type == 'state'  %}
+        {{ attribute.state }}
+    {% else %}
+    	{% if attribute.type == 'text' or attribute.type == 'wysiwyg' or attribute.name == 'Caption' %}
+			 <div class="tt-field-data wysiwyg">{{ attribute.text | raw }}</div>
+    	{% else %}
+			{% if 'clipboard' in attribute.modelGroups %}
+				<button type="button" class="btn-link clipboard" data-clipboard-text="{{ attribute.text | raw }}" data-message="{{ type.message | raw }}" tabindex="-1">
+					<i class="icon-share"></i> {{ attribute.text | raw }}
+				</button>
+			{% else %}
+				{{ attribute.text | raw }}
+			{% endif %}
+    	{% endif %}
+    {% endif %}
+    {% set group = attribute.group %}
+	<br/>
+{% endfor %}
+
+{% if comments.data.text != "" %}
+	<br/>
+	<b>{{ comments.name }}</b>: [{{ comments.data.author }}]
+	<br/>
+	{{ comments.data.text | raw }}
+	<br/>
+{% endif %}

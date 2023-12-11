@@ -1,0 +1,30 @@
+framework:
+    secret: 123
+    router:
+        resource: "@ProjectBundle/Resources/config/routing.yml"
+        strict_requirements: false
+    csrf_protection: false
+    validation:      { enable_annotations: true }
+    templating: 
+      engines: ['twig','php'] 
+
+fos_rest:
+    body_listener: true
+    routing_loader:
+        default_format: json
+
+monolog:
+    handlers:
+        applog:
+            type: rotating_file
+            path: "%kernel.logs_dir%/pm_app_system.log"
+            level: error
+            max_files: 5 # Set up to keep log files for 5 recent days only
+
+nelmio_cors:
+    paths:
+        '^/pm/(.*)/api/v1/':
+            allow_origin: ['*']
+            allow_headers: ['Devprom-Auth-Key']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+            max_age: 3600

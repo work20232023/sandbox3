@@ -1,0 +1,17 @@
+/* p.MsoNormal, li.MsoNormal, div.MsoNormal */
+
+.Normal-P,
+.Normal-T,
+.Normal-H,
+.Normal-T,
+.Normal-R 
+{
+}
+
+.Word_-C
+{
+border-top: 1px windowtext solid;
+border-left: 1px windowtext solid;
+border-bottom: 1px windowtext solid;
+border-right: 1px windowtext solid;
+}

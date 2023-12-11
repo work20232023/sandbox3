@@ -1,0 +1,357 @@
+config:
+    path: /pm/{project}/menu/{report}
+    defaults: { _controller: ProjectBundle:Navigation:index }
+
+_project_settings:
+    path: /pm/{project}/settings
+    defaults: { _controller: ProjectBundle:Settings:project }
+
+_project_worklog:
+    path: /pm/{project}/worklog
+    defaults: { _controller: ProjectBundle:Time:worklog }
+
+_project_worklog_report:
+    path: /pm/{project}/worklog/{report}
+    defaults: { _controller: ProjectBundle:Time:worklog }
+
+_project_worklog_chart:
+    path: /pm/{project}/worklog/chart/{report}
+    defaults: { _controller: ProjectBundle:Time:chart }
+
+_project_autoactions:
+    path: /pm/{project}/autoactions
+    defaults: { _controller: ProjectBundle:Workflow:autoaction }
+
+_dashboard:
+    path: /pm/{project}/dashboard
+    defaults: { _controller: ProjectBundle:Dashboard:index }
+
+settings:
+    path: /pm/{project}/settings/{area}/{action}
+    defaults: { _controller: ProjectBundle:Settings:index }
+
+_broken_trace_explain:
+    path:  /pm/{project}/tooltip/explain/{object}
+    defaults: { _controller: ProjectBundle:Tooltip:explain }
+
+_tooltip_empy:
+    path:  /pm/{project}/tooltip/{classname}/
+    defaults: { _controller: ProjectBundle:Tooltip:empty }
+
+_tooltip:
+    path:  /pm/{project}/tooltip/{classname}/{objects}
+    defaults: { _controller: ProjectBundle:Tooltip:show }
+
+_tooltip_objects_list:
+    path:  /pm/{project}/tooltip/objectlist/{classname}/{objects}
+    defaults: { _controller: ProjectBundle:Tooltip:list }
+
+_treemodel_select:
+    path:  /pm/{project}/treemodel/{classname}
+    defaults: { _controller: ProjectBundle:Tree:index }
+
+_treegrid_select:
+    path:  /pm/{project}/treegrid/{classname}
+    defaults: { _controller: ProjectBundle:Tree:grid }
+
+_treegrid_select_report:
+    path:  /pm/{project}/treegrid/{classname}/{report}
+    defaults: { _controller: ProjectBundle:Tree:grid }
+
+_network:
+    path:  /pm/{project}/network/{classname}/{object}
+    defaults: { _controller: ProjectBundle:Network:json }
+
+_graph:
+    path:  /pm/{project}/graph/{classname}/{object}
+    defaults: { _controller: ProjectBundle:Network:view }
+
+_documentation:
+    path:  /pm/{project}/analysis/documentation/{classname}/{object}
+    defaults: { _controller: ProjectBundle:Analysis:documentation }
+
+_similar:
+    path:  /pm/{project}/analysis/similar/{classname}/{object}
+    defaults: { _controller: ProjectBundle:Analysis:similar }
+
+_affects:
+    path:  /pm/{project}/analysis/{searchClass}/{classname}/{object}
+    defaults: { _controller: ProjectBundle:Analysis:affects }
+
+_export:
+    path:  /pm/{project}/export
+    defaults: { _controller: ProjectBundle:Project:export }
+
+_projectlist:
+    path:  /pm/{project}/projects
+    defaults: { _controller: ProjectBundle:Project:list }
+
+_projectlist_report:
+    path:  /pm/{project}/projects/{report}
+    defaults: { _controller: ProjectBundle:Project:list }
+
+_planreleases:
+    path:  /pm/{project}/releases
+    defaults: { _controller: ProjectBundle:Release:list }
+
+_planreleases_report:
+    path:  /pm/{project}/releases/{report}
+    defaults: { _controller: ProjectBundle:Release:list }
+
+_planiterations:
+    path:  /pm/{project}/iterations
+    defaults: { _controller: ProjectBundle:Iteration:list }
+
+_planiterations_report:
+    path:  /pm/{project}/iterations/{report}
+    defaults: { _controller: ProjectBundle:Iteration:list }
+
+_roadmap:
+    path:  /pm/{project}/roadmap
+    defaults: { _controller: ProjectBundle:Project:roadmap }
+
+_roadmap_report:
+    path:  /pm/{project}/roadmap/{report}
+    defaults: { _controller: ProjectBundle:Project:roadmap }
+
+_whatsnew:
+    path:  /pm/{project}/whatsnew
+    defaults: { _controller: ProjectBundle:Project:whatsnew }
+
+_whatsnew_report:
+    path:  /pm/{project}/whatsnew/{report}
+    defaults: { _controller: ProjectBundle:Project:whatsnew }
+
+_scripts:
+    path:  /pm/{project}/scripts/javascript/
+    defaults: { _controller: CommonBundle:Scripts:js }
+
+_css:
+    path:  /pm/{project}/scripts/css/
+    defaults: { _controller: CommonBundle:Scripts:css }
+
+_section:
+    path:  /pm/{project}/section/{section}
+    defaults: { _controller: ProjectBundle:Section:draw }
+
+_details_log:
+    path:  /pm/{project}/details/log
+    defaults: { _controller: ProjectBundle:Details:log }
+_details_workload:
+    path:  /pm/{project}/details/workload
+    defaults: { _controller: ProjectBundle:Details:workload }
+_details_comment:
+    path:  /pm/{project}/details/comments/{objectclass}/{objectid}
+    defaults: { _controller: ProjectBundle:Details:comment }
+
+bulk:
+    path:  /pm/{project}/bulk
+    defaults: { _controller: ProjectBundle:Bulk:form }
+
+invite:
+    path:  /pm/{project}/invite
+    defaults: { _controller: ProjectBundle:Invitation:form }
+    methods:  GET
+
+invite_process:
+    path:  /pm/{project}/invite
+    defaults: { _controller: ProjectBundle:Invitation:formProcess }
+    methods:  POST
+
+metrics:
+    path:  /pm/{project}/metrics
+    defaults: { _controller: ProjectBundle:Metrics:page }
+    methods:  [GET, POST]
+
+metrics_report:
+    path:  /pm/{project}/metrics/{report}
+    defaults: { _controller: ProjectBundle:Metrics:page }
+    methods:  [GET, POST]
+
+comments_new:
+    path:  /pm/{project}/comment/{id}/reply
+    defaults: { _controller: ProjectBundle:Comment:reply }
+    methods:  [GET, POST]
+
+attachments_upload:
+    path:  /pm/{project}/attachments/upload
+    defaults: { _controller: ProjectBundle:Attachments:upload }
+    methods:  [GET, POST]
+
+attachments:
+    path:  /pm/{project}/attachments
+    defaults: { _controller: ProjectBundle:Attachments:page }
+    methods:  [GET, POST]
+attachments_report:
+    path:  /pm/{project}/attachments/{report}
+    defaults: { _controller: ProjectBundle:Attachments:page }
+    methods:  [GET, POST]
+
+mentions:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\MentionController
+    prefix:   /pm/{project}
+
+api_key:
+    path:  /pm/{project}/api/key
+    defaults: { _controller: ProjectBundle:Apikey:full }
+
+api_readonly:
+    path:  /pm/{project}/api/key-readonly
+    defaults: { _controller: ProjectBundle:Apikey:readonly }
+
+api_writeonly:
+    path:  /pm/{project}/api/key-writeonly
+    defaults: { _controller: ProjectBundle:Apikey:writeonly }
+
+view_form:
+    path:  /pm/{project}/form/{classname}/{objectid}
+    defaults: { _controller: ProjectBundle:View:form }
+
+component_list:
+    path:  /pm/{project}/components/list
+    defaults: { _controller: ProjectBundle:Component:index }
+
+component_list_report:
+    path:  /pm/{project}/components/list/{report}
+    defaults: { _controller: ProjectBundle:Component:index }
+
+component_tree:
+    path:  /pm/{project}/components/tree
+    defaults: { _controller: ProjectBundle:Component:tree }
+
+component_tree_report:
+    path:  /pm/{project}/components/tree/{report}
+    defaults: { _controller: ProjectBundle:Component:tree }
+
+component_chart:
+    path:  /pm/{project}/components/chart
+    defaults: { _controller: ProjectBundle:Component:chart }
+
+component_chart_report:
+    path:  /pm/{project}/components/chart/{report}
+    defaults: { _controller: ProjectBundle:Component:chart }
+
+component_trace:
+    path:  /pm/{project}/components/trace
+    defaults: { _controller: ProjectBundle:Component:trace }
+
+component_trace_report:
+    path:  /pm/{project}/components/trace/{report}
+    defaults: { _controller: ProjectBundle:Component:trace }
+
+apidocs_index:
+    path:  /pm/{project}/apidocs/list
+    defaults: { _controller: ProjectBundle:DocsAPI:index }
+
+pages:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\PagesController
+    prefix:	  /pm/{project}/menu/rest
+
+menu_nodes:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\NodesController
+    prefix:   /pm/{project}/menu/rest/functionalareas/{areaid}
+
+functional_areas:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\FunctionalareasController
+    prefix:   /pm/{project}/menu/rest
+
+_widget_share_report:
+    path:  /pm/{project}/widget/share
+    defaults: { _controller: ProjectBundle:Widget:share }
+
+_widget_project_select:
+    path:  /pm/{project}/widget/project
+    defaults: { _controller: ProjectBundle:Widget:project }
+
+_widget_entity_select:
+    path:  /pm/{project}/widget/entity
+    defaults: { _controller: ProjectBundle:Widget:entity }
+
+rest_iteration:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\IterationController
+    prefix:   /pm/{project}/api/{version}
+
+rest_release:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\ReleaseController
+    prefix:   /pm/{project}/api/{version}
+
+rest_build:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\BuildController
+    prefix:   /pm/{project}/api/{version}
+
+rest_requirement:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\RequirementController
+    prefix:   /pm/{project}/api/{version}
+
+rest_feature:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\FeatureController
+    prefix:   /pm/{project}/api/{version}
+
+rest_testplan:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\TestplanController
+    prefix:   /pm/{project}/api/{version}
+
+rest_testscenario:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\TestscenarioController
+    prefix:   /pm/{project}/api/{version}
+
+rest_test:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\TestController
+    prefix:   /pm/{project}/api/{version}
+
+rest_testitem:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\TestitemController
+    prefix:   /pm/{project}/api/{version}
+
+rest_issue:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\IssueController
+    prefix:   /pm/{project}/api/{version}
+
+rest_change:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\ChangeController
+    prefix:   /pm/{project}/api/{version}
+
+rest_task:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\TaskController
+    prefix:   /pm/{project}/api/{version}
+
+rest_bug:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\BugController
+    prefix:   /pm/{project}/api/{version}
+
+rest_hour:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\HourController
+    prefix:   /pm/{project}/api/{version}/{class}/{object}
+
+rest_attachment:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\AttachmentController
+    prefix:   /pm/{project}/api/{version}/{class}/{object}
+
+rest_comment:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\CommentController
+    prefix:   /pm/{project}/api/{version}/{class}/{object}
+
+rest_item:
+    type:     rest
+    resource: Devprom\ProjectBundle\Controller\Rest\ItemController
+    prefix:   /pm/{project}/api/{version}/{class}

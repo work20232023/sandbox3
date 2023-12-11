@@ -1,0 +1,39 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteBase /pm
+
+RewriteRule ^([^/]+)/menu/?(rest/)?(.*)$ /app/project.php?project=$1 [L,QSA]
+RewriteRule ^([^/]+)/comments/([^/]+)/([^/]+)$ comments.php?project=$1&class=$2&object=$3&formonly=true [L,QSA]
+RewriteRule ^([^/]+)/(apidocs|roadmap|form|graph|components|dashboard|iterations|releases|comment|upload|projects|whatsnew|autoactions|bulk|tooltip|wiki|export|scripts|api|invite|treegrid|treemodel|settings|metrics|attachments|mentions|network|analysis|section|details|worklog|widget)/?.*$ /app/project.php?project=$1 [L,QSA]
+RewriteRule ^([^/]+)/module/([^/]+)/([^/]+)$ page.php?namespace=$2&module=$3&project=$1 [L,QSA]
+RewriteRule ^([^/]+)/module/([^/]+)/([^/]+)/(.+)$ page.php?namespace=$2&module=$3&project=$1&report=$4 [L,QSA]
+RewriteRule ^_images/([^/]+)$ /images/$1 [L]
+RewriteRule ^images/([^/]+)$ /images/$1 [L]
+
+RewriteRule ^([^/]+)/(I-([0-9]+))$ $1/issues/board?mode=request&class=metaobject&entity=pm_ChangeRequest&pm_ChangeRequestId=$3&pm_ChangeRequestaction=view&uid=$2 [L,NC,QSA]
+RewriteRule ^([^/]+)/(T-([0-9]+))$ $1/tasks/board?class=metaobject&entity=pm_Task&pm_TaskId=$3&pm_Taskaction=view&uid=$2 [L,NC,QSA]
+RewriteRule ^([^/]+)/([a-z]{1}-[0-9]+)/?(\d+)?$ goto.php?project=$1&uid=$2&baseline=$3 [L,NC,QSA]
+
+RewriteRule ^([^/]+)/time/([^/]+)/([^/]+)$ spenttime.php?project=$1&class=$2&object=$3&formonly=true [L,QSA]
+RewriteRule ^([^/]+)/features/(list|trace|chart)$ functions.php?project=$1&view=$2 [L,QSA]
+RewriteRule ^([^/]+)/features/(list|trace|chart)/([^/]+)$ functions.php?project=$1&view=$2&report=$3 [L,QSA]
+RewriteRule ^([^/]+)/issues/(backlog|list|trace|chart|board|import)$ requests.php?project=$1&view=$2 [L,QSA]
+RewriteRule ^([^/]+)/issues/(backlog|list|trace|chart|board|import)/([^/]+)$ requests.php?project=$1&view=$2&report=$3 [L,QSA]
+RewriteRule ^([^/]+)/tasks/(list|trace|chart|board)$ planning.php?project=$1&view=$2 [L,QSA]
+RewriteRule ^([^/]+)/tasks/(list|trace|chart|board)/([^/]+)$ planning.php?project=$1&view=$2&report=$3 [L,QSA]
+RewriteRule ^([^/]+)/project/reports/(.+)$ index.php?project=$1&mode=reports [L,QSA]
+RewriteRule ^([^/]+)/project/dicts/PMCustomAttribute/([^/]+)$ index.php?project=$1&mode=dicts&dict=PMCustomAttribute&customattributeentity=$2 [L,QSA]
+RewriteRule ^([^/]+)/project/dicts/(.+)$ index.php?project=$1&mode=dicts&dict=$2 [L,QSA]
+RewriteRule ^([^/]+)/project/workflow/(.+)$ index.php?project=$1&mode=workflow&dict=$2 [L,QSA]
+RewriteRule ^([^/]+)/project/(meeting|dicts|question|reports|log|blog|scrum|tags|terms|versionsettings|settings|import-settings|export-settings|methodology|workflow)$ index.php?project=$1&mode=$2 [L,QSA]
+RewriteRule ^([^/]+)/project/(meeting|dicts|question|reports|log|blog|scrum|tags|versionsettings|settings|methodology|workflow)/([^/]+)$ index.php?project=$1&mode=$2&report=$3 [L,QSA]
+RewriteRule ^([^/]+)/participants/(list|rights|invite|mail|find|spenttime)$ participants.php?project=$1&mode=$2 [L,QSA]
+RewriteRule ^([^/]+)/participants/(list|rights|invite|mail|find|spenttime)/([^/]+)$ participants.php?project=$1&mode=$2&report=$3 [L,QSA]
+RewriteRule ^([^/]+)/plan/(metrics|hierarchy|milestone)$ project.php?project=$1&mode=$2 [L,QSA]
+RewriteRule ^([^/]+)/plan/(metrics|hierarchy|milestone)/([^/]+)$ project.php?project=$1&mode=$2&report=$3 [L,QSA]
+RewriteRule ^([^/]+)/knowledgebase/(tree|files|templates)/?([^/]+)?$ knowledgebase.php?project=$1&view=$2&report=$3 [L,QSA]
+RewriteRule ^([^/]+)/profile/?$ profile.php?project=$1 [L,QSA]
+
+RewriteRule ^([a-zA-Z0-9\-\_]+)\/?$ $1/index.php?tab=entry [L,QSA,NC]
+RewriteRule ^([^/]+)/([^/]+)$ $2?project=$1 [L,QSA]

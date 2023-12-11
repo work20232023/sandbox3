@@ -1,0 +1,28 @@
+{% extends 'email.base.twig' %}
+
+{% block title %}
+	Nearest tasks and issues
+{% endblock %}
+
+{% block content %}
+	{% for date, tasks in deadlines %}
+		<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+			<td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+				<h4>{{ date | raw }}</h4>
+			</td>
+		</tr>
+		{% for task in tasks %}
+			<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+				<td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+					{{ task.id | raw }} {{ task.title | raw }}
+				</td>
+			</tr>
+		{% endfor %}
+	{% endfor %}
+	<br/>
+	<a href="{{ log_url }}">Mode details...</a>
+{% endblock %}
+
+{% block footer %}
+	You can disable this notification by unchecking the option in <a href="{{ profile_url }}">your profile</a>.
+{% endblock %}

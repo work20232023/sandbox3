@@ -1,0 +1,23 @@
+<?php 
+include SERVER_ROOT_PATH."plugins/accountclient.php";
+include SERVER_ROOT_PATH."plugins/customs.php";
+include SERVER_ROOT_PATH."plugins/ee.core.php";
+include SERVER_ROOT_PATH."plugins/financing.php";
+include SERVER_ROOT_PATH."plugins/helpdocs.php";
+include SERVER_ROOT_PATH."plugins/incidents.php";
+include SERVER_ROOT_PATH."plugins/integration.php";
+include SERVER_ROOT_PATH."plugins/kanban.php";
+include SERVER_ROOT_PATH."plugins/operations.php";
+include SERVER_ROOT_PATH."plugins/permissions.php";
+include SERVER_ROOT_PATH."plugins/process.php";
+include SERVER_ROOT_PATH."plugins/producttour.php";
+include SERVER_ROOT_PATH."plugins/requirements.php";
+include SERVER_ROOT_PATH."plugins/resman.php";
+include SERVER_ROOT_PATH."plugins/reviewcenter.php";
+include SERVER_ROOT_PATH."plugins/scripts.php";
+include SERVER_ROOT_PATH."plugins/scrum.php";
+include SERVER_ROOT_PATH."plugins/sourcecontrol.php";
+include SERVER_ROOT_PATH."plugins/support.php";
+include SERVER_ROOT_PATH."plugins/syseng.php";
+include SERVER_ROOT_PATH."plugins/testing.php";
+include SERVER_ROOT_PATH."plugins/wrtfckeditor.php";

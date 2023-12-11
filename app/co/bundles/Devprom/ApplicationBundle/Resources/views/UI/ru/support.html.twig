@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/cache/?v={{ version }}&asset=1&type=css"/>
+</head>
+<body style="background: none;">
+    <div class="container-fluid source-text">
+        <div class="row-fluid" style="min-height: 350px;">
+            <br/>
+            {% if support_url != "" %}
+                Создайте заявку на сайте поддержки: <br/>
+                <a target="_blank" href="{{ support_url }}">{{ support_url }}</a>
+                <br/><br/>
+            {% endif %}
+
+            Или напишите нам о проблеме: <br/>
+            <a target="_blank" href="mailto:support@devprom.ru">support@devprom.ru</a>
+            <br/><br/>
+
+            В обращении укажите, пожалуйста, следующую информацию: <br/>
+            {{ server_url }} <br/>
+            {{ license_name }} {{ current_version }}<br/><br/>
+
+            Мы объединяем профессионалов вокруг платформы и программной инженерии, присоединяйтесь!<br/>
+            <a target="_blank" href="https://club.myalm.ru">https://club.myalm.ru</a>
+        </div>
+    </div>
+    <input type="hidden" name="title" value="{{ title }}">
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'email.base.twig' %}
+
+{% block title %}
+	{{ title | raw }}
+{% endblock %}
+
+{% block content %}
+	{% for comment in comments %}
+		<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+			<td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+				{{ comment.text | raw }}
+				<p>&mdash; {{ comment.author | raw }}, {{ comment.date }}</p>
+				<p><a href="{{ comment.url }}">Reply</a></p>
+			</td>
+		</tr>
+	{% endfor %}
+{% endblock %}
+
+{% block footer %}
+	{{ reason | raw }}
+{% endblock %}
